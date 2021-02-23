@@ -193,7 +193,8 @@
         {
           "label": "Body",
           "name": "body",
-          "widget": "markdown"
+          "widget": "html",
+          "storeImages": true
         }
       ]
     }

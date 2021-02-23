@@ -193,8 +193,78 @@
         {
           "label": "Body",
           "name": "body",
-          "widget": "html",
-          "storeImages": true
+          "widget": "markdown"
+        }
+      ]
+    },
+    {
+      "name": "faq",
+      "label": "FAQ",
+      "folder": "src/data/faq",
+      "extension": "json",
+      "type": "folder_based_collection",
+      "format": "json",
+      "create": true,
+      "slug": "{{slug}}",
+      "identifier_field": "slug",
+      "summary": "{{title}}",
+      "fields": [{
+          "label": "Slug",
+          "name": "slug",
+          "widget": "string"
+        },
+        {
+          "label": "Title",
+          "name": "title",
+          "widget": "string"
+        },
+        {
+          "label": "Publish Date",
+          "name": "date",
+          "widget": "datetime",
+          "format": "YYYY-MM-DD",
+          "dateFormat": "YYYY-MM-DD",
+          "timeFormat": false
+        },
+        {
+          "label": "Author",
+          "name": "author",
+          "widget": "relation",
+          "collection": "meta",
+          "file": "authors",
+          "search_fields": [
+            "authors.*.name"
+          ],
+          "display_fields": [
+            "authors.*.name"
+          ],
+          "value_field": "authors.*.slug"
+        },
+        {
+          "label": "Tags",
+          "label_singular": "Tag",
+          "name": "tags",
+          "widget": "list",
+          "summary": "{{fields.tag}}",
+          "field": {
+            "label": "Tag",
+            "name": "tag",
+            "widget": "relation",
+            "collection": "meta",
+            "file": "tags",
+            "search_fields": [
+              "tags.*.name"
+            ],
+            "display_fields": [
+              "tags.*.name"
+            ],
+            "value_field": "tags.*.slug"
+          }
+        },
+        {
+          "label": "HTML",
+          "name": "body",
+          "widget": "html"
         }
       ]
     }
